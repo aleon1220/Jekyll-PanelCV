@@ -24,20 +24,18 @@ Check out for more themes: [Jekyll Themes](http://jekylltheme.org)
 # Local dev
 to run it locally i suggest you use docker. Please google the docker installation and install it.
 
-- Pull the ruby image
-`docker pull ruby`
-- build a new image called *jekyll-local*
-`docker build -t jekyll-local .`
-- Run a container called **local_PanelCV** pointing to the local repo where you have the code
+- Pull the ruby image tagged version 3.8
+`docker pull jekyll/jekyll:3.8`
+- Build The Jekyll Page with *Docker*
+
+```docker run --rm -it --volume="$PWD:/srv/jekyll" --volume="$PWD/vendor/bundle:/usr/local/bundle" --env JEKYLL_ENV=production jekyll/jekyll:3.8 jekyll build```
+
+- Run a temporary container to serve the **Built Jekyll site.** pointing to the local repo where you have the code.
 
 ```
-docker run -d --name local_PanelCV \
-       -p 4000:4000 \
-       --volume /home/ws/deployments/Spinnaker/oss-contribute-docs/code:/code \
-       ruby
+docker run --rm --volume="$PWD:/srv/jekyll" --volume="$PWD/vendor/bundle:/usr/local/bundle" --env JEKYLL_ENV=development -p 4000:4000 jekyll/jekyll:3.8 jekyll serve
 ```
-
 
 # Original Author
-
 - [Locky](https://github.com/junlulocky)
+- Docker commands for Ruby from [dev.to Compile a Jekyll project without installing Jekyll or Ruby by using Docker](https://dev.to/michael/compile-a-jekyll-project-without-installing-jekyll-or-ruby-by-using-docker-4184)

@@ -1,7 +1,7 @@
 
 title: Andres Leon Rangel Page
-url: 'http://aleon.nz'
-baseurl: '/Jekyll-PanelCV' #change it according to your repository name
+url: 'http://andres.nz'
+baseurl: '' #change it according to your repository name
 
 # Profile information
 yourname: Andres Leon-Rangel  ## put your name
@@ -17,9 +17,9 @@ linkedin: https://www.linkedin.com/in/aleon1220/  ## your linkedin account url
 
 # Update all the sections by editing the files inside _includes folder.
 exclude:
-  # - "docker-compose-custom-ruby.yml"
-  # - "docker-compose-simple-jekyll.yml"
-  # - "package.json"
-#   - "README.md"
-#   - "publish.sh"
-  - "vendor"
+ - "vendor"
+ - "docker-compose-custom-ruby.yml"
+ - "docker-compose-simple-jekyll.yml"
+ - "docker-compose.yml"
+# - "package.json"
+# - "README.md"
